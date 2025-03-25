@@ -1,12 +1,11 @@
+import { getMailings } from "@/api";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-// import { getMailings } from "../../../api/getMailings";
-import getMailings from "../../../api/getMailings"
 
 export const fetchMailings = createAsyncThunk(
   "mailingsPage/fetchMailings",
   async (page) => {
     const response = await getMailings(page);
+    console.log(response, "response mailings page");
 
     return response;
   }
@@ -36,7 +35,7 @@ export const mailingsPageSlice = createSlice({
       state.isLoading = false;
 
       state.data = action.payload;
-      console.log(state.date, "statedata")
+      console.log(state.data, "state.data");
     });
     builder.addCase(fetchMailings.rejected, (state, action) => {
       state.isLoading = false;
