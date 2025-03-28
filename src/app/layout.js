@@ -1,7 +1,8 @@
-import { Container } from "@mui/material";
+import { Container, ThemeProvider } from "@mui/material";
 import Topbar from "./components/Topbar";
 import { Providers } from "./provider";
 import Footer from "./components/Footer";
+import theme from "../theme";
 
 export const metadata = {
   title: "24.03",
@@ -16,7 +17,7 @@ export default function RootLayout({ children }) {
       <body>
         <Providers>
           <Topbar headerHeight={headerHeight} />
-          <Container
+          {/* <Container
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -24,9 +25,9 @@ export default function RootLayout({ children }) {
               pt: `${headerHeight + 32}px`,
               minHeight: `100vh`,
             }}
-          >
-            {children}
-          </Container>
+          > */}
+          {children}
+          {/* </Container> */}
           <Footer />
         </Providers>
       </body>

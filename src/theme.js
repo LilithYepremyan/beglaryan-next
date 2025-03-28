@@ -77,50 +77,52 @@ export const palette = {
   divider: colors.lightGrey,
 };
 
-export default createTheme({
-  typography: {
-    fontFamily: "Inter",
-    fontSize: 14,
-    h1: {
-      fontSize: "34px",
-      fontFamily: "Playfair Display",
-      fontWeight: 700,
-      color: palette.text.primary,
-    },
-    h2: {
-      fontSize: "21px",
-      fontFamily: "Playfair Display",
-      fontWeight: 700,
-      color: palette.text.primary,
-      textTransform: "uppercase",
-    },
-    h3: {
-      fontSize: "21px",
-      fontWeight: 700,
-      color: palette.text.primary,
-    },
-    h4: {
-      fontSize: "18px",
-      fontWeight: 700,
-      color: palette.text.primary,
-    },
-    subtitle: {
-      fontSize: "12px",
-      fontWeight: 400,
-      color: palette.text.secondary,
-    },
-    body1: {
-      fontSize: "14px",
-      fontWeight: 400,
-      color: palette.text.primary,
-    },
-    body2: {
-      fontSize: "14px",
-      fontWeight: 400,
-      color: palette.text.secondary,
-    },
+export const typography = {
+  fontFamily: "Inter",
+  fontSize: 14,
+  h1: {
+    fontSize: "34px",
+    fontFamily: "Playfair Display",
+    fontWeight: 700,
+    color: colors.almostBlack,
   },
-  breakpoints,
+  h2: {
+    fontSize: "21px",
+    fontFamily: "Playfair Display",
+    fontWeight: 700,
+    color: colors.almostBlack,
+    textTransform: "uppercase",
+  },
+  h3: {
+    fontSize: "21px",
+    fontWeight: 700,
+    color: colors.almostBlack,
+  },
+  h4: {
+    fontSize: "18px",
+    fontWeight: 700,
+    color: colors.almostBlack,
+  },
+  subtitle: {
+    fontSize: "12px",
+    fontWeight: 400,
+    color: colors.darkGrey,
+  },
+  body1: {
+    fontSize: "14px",
+    fontWeight: 400,
+    color: colors.almostBlack,
+  },
+  body2: {
+    fontSize: "14px",
+    fontWeight: 400,
+    color: colors.darkGrey,
+  },
+};
+
+export default createTheme({
+  typography,
+  breakpoints: { values: breakpoints.values },
   palette,
   components: {
     MuiCssBaseline: {

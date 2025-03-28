@@ -325,6 +325,9 @@ function Topbar(props) {
                   href={link || "#"}
                   passHref
                   key={title}
+                  style={{
+                    textDecoration: "none",
+                  }}
                 >
                   <Button
                     key={`h-${title}`}
@@ -338,20 +341,14 @@ function Topbar(props) {
                       }
                     }}
                     sx={{
-                      // mx: 1,
-                      // display: "block",
-                      // textAlign: "center",
-                      // textTransform: "uppercase",
-                      // color: palette.white,
-
                       mx: 1,
                       display: "block",
                       textAlign: "center",
                       textTransform: "uppercase",
                       color: palette.white,
-                      textDecoration: "none", 
+                      textDecoration: "none",
                       "&:hover": {
-                        textDecoration: "none", 
+                        textDecoration: "none",
                       },
                     }}
                   >

@@ -15,7 +15,7 @@ export default function mailingFormatter(unformattedData) {
   const thumbnails = media.map(x => {
     const ext = x?.ext ? `.${x?.ext}` : '';
 
-    return `${MEDIA_IMAGE_BASE_URL}/thumbnail/${x.id}${ext}`;
+    return `${MEDIA_IMAGE_BASE_URL}/hd/${x.id}.jpg`;
   });
 
   return {
