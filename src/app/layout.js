@@ -14,7 +14,7 @@ export const headerHeight = 64;
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body style={{ backgroundColor: "#F7F8FC" }}>
         <Providers>
           <Topbar headerHeight={headerHeight} />
           <Container
@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
               minHeight: `100vh`,
             }}
           >
-          {children}
+            {children}
           </Container>
           <Footer />
         </Providers>
