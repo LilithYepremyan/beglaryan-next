@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       <body>
         <Providers>
           <Topbar headerHeight={headerHeight} />
-          {/* <Container
+          <Container
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -25,9 +25,9 @@ export default function RootLayout({ children }) {
               pt: `${headerHeight + 32}px`,
               minHeight: `100vh`,
             }}
-          > */}
+          >
           {children}
-          {/* </Container> */}
+          </Container>
           <Footer />
         </Providers>
       </body>
