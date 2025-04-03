@@ -1,4 +1,4 @@
-import { MEDIA_IMAGE_BASE_URL } from './consts';
+import { MEDIA_IMAGE_BASE_URL } from "./consts";
 
 export default function mailingFormatter(unformattedData) {
   const {
@@ -12,8 +12,11 @@ export default function mailingFormatter(unformattedData) {
     media,
   } = unformattedData || {};
 
-  const thumbnails = media.map(x => {
-    const ext = x?.ext ? `.${x?.ext}` : '';
+  console.log("description", description);
+  console.log("Media field:", media);
+
+  const thumbnails = media.map((x) => {
+    const ext = x?.ext ? `.${x?.ext}` : "";
 
     return `${MEDIA_IMAGE_BASE_URL}/hd/${x.id}.jpg`;
   });

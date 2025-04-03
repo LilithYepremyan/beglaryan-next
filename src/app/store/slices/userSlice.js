@@ -117,7 +117,7 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    udpateCart: (state, action) => {
+    updateCart: (state, action) => {
       state.data.stats.cart = action.payload;
     },
 
@@ -272,7 +272,7 @@ export const userSlice = createSlice({
 });
 
 export const {
-  udpateCart,
+  updateCart,
   decrementWishlist,
   incrementWishlist,
   resetOrders,

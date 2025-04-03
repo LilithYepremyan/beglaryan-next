@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { udpateCart, decrementWishlist, incrementWishlist } from './userSlice';
+import { updateCart, decrementWishlist, incrementWishlist } from './userSlice';
 import { getFabrics, getMailing, postWishlistItem, deleteWishlistItem, postCartItem } from '../../../api';
 
 export const fetchMailing = createAsyncThunk('mailingPage/fetchMailing', async ({ id }, thunkAPI) => {
@@ -51,7 +51,7 @@ export const addFabricToCart = createAsyncThunk('mailingPage/addFabricToCart', a
 
     const { count, sum } = response.total || {};
 
-    thunkAPI.dispatch(udpateCart({ count, sum }));
+    thunkAPI.dispatch(updateCart({ count, sum }));
 
     return response;
   } catch (error) {
@@ -114,6 +114,7 @@ export const mailingPageSlice = createSlice({
       state.isLoading = false;
 
       state.data = { ...state.data, ...action.payload };
+      console.log(state.data, "mailingpageslice")
     });
     builder.addCase(fetchMailing.rejected, (state, action) => {
       state.isLoading = false;

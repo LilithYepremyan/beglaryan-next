@@ -6,9 +6,9 @@ import { useMemo } from "react";
 import { ThemeProvider } from "@mui/material";
 import theme from "@/theme";
 
+// const store = useMemo(() => makeStore(), []);
+const store = makeStore();
 export function Providers({ children }) {
-  const store = useMemo(() => makeStore(), []);
-
   return (
     <ThemeProvider theme={theme}>
       <Provider store={store}>{children}</Provider>

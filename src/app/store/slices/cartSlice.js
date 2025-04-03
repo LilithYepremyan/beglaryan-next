@@ -1,6 +1,6 @@
 // import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-// import { udpateCart } from './userSlice';
+// import { updateCart } from './userSlice';
 // import {
 //   deleteCartItem,
 //   deletePromo,
@@ -28,7 +28,7 @@
 
 //     const { count, sum } = response.total || {};
 
-//     thunkAPI.dispatch(udpateCart({ count, sum }));
+//     thunkAPI.dispatch(updateCart({ count, sum }));
 
 //     return response;
 //   } catch (error) {
@@ -41,7 +41,7 @@
 
 //   const { count, sum } = response.total || {};
 
-//   thunkAPI.dispatch(udpateCart({ count, sum }));
+//   thunkAPI.dispatch(updateCart({ count, sum }));
 
 //   track(events.cartPage.сartItem.delete);
 
@@ -53,7 +53,7 @@
 
 //   const { count, sum } = response.total || {};
 
-//   thunkAPI.dispatch(udpateCart({ count, sum }));
+//   thunkAPI.dispatch(updateCart({ count, sum }));
 
 //   track(events.cartPage.сartItem.delete);
 
@@ -71,7 +71,7 @@
 
 //   const { count, sum } = response.total || {};
 
-//   thunkAPI.dispatch(udpateCart({ count, sum }));
+//   thunkAPI.dispatch(updateCart({ count, sum }));
 
 //   track(events.cartPage.clear, {
 //     changedCount: fabricsChanged.length,
@@ -90,7 +90,7 @@
 
 //     const { count, sum } = response.total || {};
 
-//     thunkAPI.dispatch(udpateCart({ count, sum }));
+//     thunkAPI.dispatch(updateCart({ count, sum }));
 
 //     track(events.cartPage.сartItem.edit);
 
@@ -114,7 +114,7 @@
 
 //     const response = await postCartConfirm({ ...cartToConfirm, promoCode });
 
-//     thunkAPI.dispatch(udpateCart({ count: 0, sum: 0 }));
+//     thunkAPI.dispatch(updateCart({ count: 0, sum: 0 }));
 
 //     track(events.cartPage.confirm, {
 //       changedCount: fabricsChanged.length,

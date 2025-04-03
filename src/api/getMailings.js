@@ -2,6 +2,8 @@ import client from "./client";
 import mailingsFormatter from "./formatters/mailingsFormatter";
 
 async function getMailings(page) {
+  console.log("get mailings")
+  console.log(`Starting fetch for mailings, page: ${page}`);
   return client
     .get("/mailings/", {
       params: {

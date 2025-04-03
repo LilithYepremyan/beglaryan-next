@@ -44,7 +44,7 @@ function ContactsPage() {
         }}
       >
         <Typography variant="h1" sx={{ my: "60px", fontSize: "32px" }}>
-          {t("title")}1111111111111
+          {t("title")}
         </Typography>
         <Contacts textColor={colors.darkGrey} iconsColor={colors.darkGrey} />
         <Box

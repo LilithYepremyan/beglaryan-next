@@ -37,7 +37,9 @@ export default function fabricFormatter(unformattedData) {
     .map(x => {
       const ext = x?.ext ? `.${x?.ext}` : '';
 
-      return `${MEDIA_IMAGE_BASE_URL}/hd/${x.id}${ext}`;
+      // return `${MEDIA_IMAGE_BASE_URL}/hd/${x.id}${ext}`;
+      return `${MEDIA_IMAGE_BASE_URL}/hd/${x.id}`;
+      
     });
 
   const videos = media
@@ -45,7 +47,8 @@ export default function fabricFormatter(unformattedData) {
     .map(x => {
       const ext = x?.ext ? `.${x?.ext}` : '';
 
-      return `${MEDIA_VIDEO_BASE_URL}/hd/${x.id}${ext}`;
+      // return `${MEDIA_VIDEO_BASE_URL}/hd/${x.id}${ext}`;
+      return `${MEDIA_VIDEO_BASE_URL}/hd/${x.id}`;
     });
 
   const thumbnails = media
@@ -53,7 +56,8 @@ export default function fabricFormatter(unformattedData) {
     .map(x => {
       const ext = x?.ext ? `.${x?.ext}` : '';
 
-      return `${MEDIA_IMAGE_BASE_URL}/thumbnail/${x.id}${ext}`;
+      // return `${MEDIA_IMAGE_BASE_URL}/thumbnail/${x.id}.jpg`;//TODO
+      return `${MEDIA_IMAGE_BASE_URL}/hd/${x.id}.jpg`;//TODO
     });
 
   const videoThumbnails = media
@@ -61,7 +65,8 @@ export default function fabricFormatter(unformattedData) {
     .map(x => {
       const ext = x?.ext ? `.jpg` : '';
 
-      return `${MEDIA_VIDEO_BASE_URL}/thumbnail/${x.id}${ext}`;
+      // return `${MEDIA_VIDEO_BASE_URL}/thumbnail/${x.id}.jpg`;// TODO 
+      return `${MEDIA_VIDEO_BASE_URL}/hd/${x.id}.jpg`;// TODO 
     });
 
   const composition = compositionUnformatted.map(x => ({

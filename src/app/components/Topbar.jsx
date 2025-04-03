@@ -56,7 +56,9 @@ function Topbar(props) {
   const { isFilterOpen } = useSelector((state) => state.fabricsPage);
 
   useEffect(() => {
-    dispatch(fetchUser());
+    // dispatch(fetchUser());
+    if (typeof window !== "undefined") {
+      dispatch(fetchUser());}
   }, [dispatch]);
 
   const drawerMenuItemsUnfiltered = {
@@ -292,6 +294,7 @@ function Topbar(props) {
 
   return (
     <>
+      (
       <AppBar
         position="fixed"
         sx={{
@@ -445,7 +448,6 @@ function Topbar(props) {
           </Toolbar>
         </Container>
       </AppBar>
-
       <Box component="nav">
         <Drawer
           container={container}
@@ -482,6 +484,7 @@ function Topbar(props) {
           </Box>
         </Drawer>
       </Box>
+      )
     </>
   );
 }

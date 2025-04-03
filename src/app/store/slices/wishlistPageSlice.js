@@ -1,6 +1,6 @@
 // import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-// import { udpateCart, decrementWishlist } from './userSlice';
+// import { updateCart, decrementWishlist } from './userSlice';
 // import { getWishlist, deleteWishlistItem, postCartItem } from '../../api';
 
 // export const fetchWishlist = createAsyncThunk(
@@ -38,7 +38,7 @@
 
 //   const { count, sum } = response.total || {};
 
-//   thunkAPI.dispatch(udpateCart({ count, sum }));
+//   thunkAPI.dispatch(updateCart({ count, sum }));
 
 //   return response;
 // });

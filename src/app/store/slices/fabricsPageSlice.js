@@ -1,55 +1,80 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-import { decrementWishlist, incrementWishlist, udpateCart } from './userSlice';
-import { getFabrics, postWishlistItem, deleteWishlistItem, postCartItem } from '../../../api';
+import { decrementWishlist, incrementWishlist, updateCart } from "./userSlice";
+import {
+  getFabrics,
+  postWishlistItem,
+  deleteWishlistItem,
+  postCartItem,
+} from "../../../api";
 
 export const fetchFabrics = createAsyncThunk(
-  'fabricsPage/fetchFabrics',
+  "fabricsPage/fetchFabrics",
   async ({ page, sort, filters, itemsPerPage, searchString }) => {
-    const response = await getFabrics(null, page, sort, filters, itemsPerPage, searchString);
+    const response = await getFabrics(
+      null,
+      page,
+      sort,
+      filters,
+      itemsPerPage,
+      searchString
+    );
 
+    console.log(response, "response");
     return response;
-  },
+  }
 );
 
-export const addFabricToWishlist = createAsyncThunk('fabricsPage/addFabricToWishlist', async ({ id }, thunkAPI) => {
-  const response = await postWishlistItem(id);
+export const addFabricToWishlist = createAsyncThunk(
+  "fabricsPage/addFabricToWishlist",
+  async ({ id }, thunkAPI) => {
+    const response = await postWishlistItem(id);
 
-  thunkAPI.dispatch(incrementWishlist());
+    thunkAPI.dispatch(incrementWishlist());
 
-  return response;
-});
+    return response;
+  }
+);
 
 export const removeFabricFromWishlist = createAsyncThunk(
-  'fabricsPage/removeFabricFromWishlist',
+  "fabricsPage/removeFabricFromWishlist",
   async ({ id }, thunkAPI) => {
     const response = await deleteWishlistItem(id);
 
     thunkAPI.dispatch(decrementWishlist());
 
     return response;
-  },
+  }
 );
 
-export const addFabricToCart = createAsyncThunk('fabricsPage/addFabricToCart', async ({ id, length }, thunkAPI) => {
-  try {
-    const response = await postCartItem(id, length);
+export const addFabricToCart = createAsyncThunk(
+  "fabricsPage/addFabricToCart",
+  async ({ id, length }, thunkAPI) => {
+    try {
+      const response = await postCartItem(id, length);
 
-    const { count, sum } = response.total || {};
+      const { count, sum } = response.total || {};
 
-    thunkAPI.dispatch(udpateCart({ count, sum }));
+      thunkAPI.dispatch(updateCart({ count, sum }));
 
-    return response;
-  } catch (error) {
-    const {
-      fabricsPage: { data },
-    } = thunkAPI.getState();
+      return response;
+    } catch (error) {
+      const {
+        fabricsPage: { data },
+      } = thunkAPI.getState();
 
-    thunkAPI.dispatch(fetchFabrics({ page: data.page, sort: data.sortId, filters: data.filters }));
+      thunkAPI.dispatch(
+        fetchFabrics({
+          page: data.page,
+          sort: data.sortId,
+          filters: data.filters,
+        })
+      );
 
-    return thunkAPI.rejectWithValue(error?.response?.data);
+      return thunkAPI.rejectWithValue(error?.response?.data);
+    }
   }
-});
+);
 
 const initialState = {
   data: {
@@ -74,7 +99,7 @@ const initialState = {
 };
 
 export const fabricsPageSlice = createSlice({
-  name: 'fabricsPage',
+  name: "fabricsPage",
   initialState,
   reducers: {
     resetState: () => initialState,
@@ -95,10 +120,10 @@ export const fabricsPageSlice = createSlice({
       }
     },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     // fetchFabrics
 
-    builder.addCase(fetchFabrics.pending, state => {
+    builder.addCase(fetchFabrics.pending, (state) => {
       state.isLoading = true;
     });
     builder.addCase(fetchFabrics.fulfilled, (state, action) => {
@@ -107,6 +132,7 @@ export const fabricsPageSlice = createSlice({
       const filters = action?.meta?.arg?.filters;
 
       state.data = { ...action.payload, filters };
+      console.log(state.data, " fabric page slice state.data");
     });
     builder.addCase(fetchFabrics.rejected, (state, action) => {
       state.isLoading = false;
@@ -119,7 +145,7 @@ export const fabricsPageSlice = createSlice({
     builder.addCase(addFabricToWishlist.fulfilled, (state, action) => {
       const fabricId = action?.meta?.arg?.id;
 
-      state.data.fabrics.find(x => x.id === fabricId).isLiked = true;
+      state.data.fabrics.find((x) => x.id === fabricId).isLiked = true;
     });
     builder.addCase(addFabricToWishlist.rejected, (state, action) => {
       state.error = action.error.message;
@@ -130,7 +156,7 @@ export const fabricsPageSlice = createSlice({
     builder.addCase(removeFabricFromWishlist.fulfilled, (state, action) => {
       const fabricId = action?.meta?.arg?.id;
 
-      state.data.fabrics.find(x => x.id === fabricId).isLiked = false;
+      state.data.fabrics.find((x) => x.id === fabricId).isLiked = false;
     });
     builder.addCase(removeFabricFromWishlist.rejected, (state, action) => {
       state.error = action.error.message;
@@ -150,32 +176,35 @@ export const fabricsPageSlice = createSlice({
       state.isFabricChangedModalOpen = false;
       state.fabricChangedInfo = initialState.fabricChangedInfo;
 
-      const { price, length } = action?.payload?.fabrics?.find(x => x.id === fabricId) || {};
+      const { price, length } =
+        action?.payload?.fabrics?.find((x) => x.id === fabricId) || {};
 
       if (price && length) {
-        state.data.fabrics.find(x => x.id === fabricId).lengthInCart = length;
-        state.data.fabrics.find(x => x.id === fabricId).priceInCart = price;
+        state.data.fabrics.find((x) => x.id === fabricId).lengthInCart = length;
+        state.data.fabrics.find((x) => x.id === fabricId).priceInCart = price;
         state.isAddToCartModalOpen = true;
       }
 
-      const isSampleInCart = !!action?.payload?.fabricsSamples?.find(x => x.id === fabricId);
+      const isSampleInCart = !!action?.payload?.fabricsSamples?.find(
+        (x) => x.id === fabricId
+      );
 
       if (isSampleInCart) {
-        state.data.fabrics.find(x => x.id === fabricId).isSampleInCart = true;
+        state.data.fabrics.find((x) => x.id === fabricId).isSampleInCart = true;
       }
     });
     builder.addCase(addFabricToCart.rejected, (state, action) => {
       state.isFabricChangedModalOpen = true;
 
       const data = action?.payload?.data || {};
-      const msg = action?.payload?.msg || '';
+      const msg = action?.payload?.msg || "";
 
       state.isAddToCartLoading = false;
 
       state.fabricChangedInfo = {
         min: Number.parseFloat(data.min, 10) || 0,
         max: Number.parseFloat(data.max, 10) || 0,
-        maxSamplesReached: msg === 'common.TooManySamples',
+        maxSamplesReached: msg === "common.TooManySamples",
       };
 
       state.error = action.error.message;
@@ -183,7 +212,11 @@ export const fabricsPageSlice = createSlice({
   },
 });
 
-export const { setIsAddToCartModalOpen, setIsFilterOpen, setIsFabricChangedModalOpen, resetState } =
-  fabricsPageSlice.actions;
+export const {
+  setIsAddToCartModalOpen,
+  setIsFilterOpen,
+  setIsFabricChangedModalOpen,
+  resetState,
+} = fabricsPageSlice.actions;
 
 export default fabricsPageSlice.reducer;
