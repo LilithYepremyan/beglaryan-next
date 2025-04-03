@@ -19,12 +19,7 @@ function Mailings() {
   const {
     data: { pagesTotal, mailings, page },
     isLoading,
-    // } = useSelector((state) => state.mailingsPage);
-  } = useSelector((state) => {
-    console.log("mailingsPage state:", state.mailingsPage); // Лог в консоль
-    return state.mailingsPage;
-  });
-  console.log(mailings, "mailings ----");
+  } = useSelector((state) => state.mailingsPage);
 
   const searchParams = useSearchParams();
 
@@ -32,19 +27,13 @@ function Mailings() {
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", newPage.toString());
 
-    console.log('Fetching mailings for page:', pageFromQuery);
     // router.push(`?${params.toString()}`, { scroll: false });
     dispatch(fetchMailings(newPage));
   };
 
   useEffect(() => {
     const pageFromQuery = Number(searchParams.get("page")) || page;
-    console.log('Fetching mailings for page:', pageFromQuery);
-    console.log("Dispatching fetchMailings...");
-    console.log("Dispatching fetchMailings with page:", pageFromQuery)
-    console.log("🟢 Dispatching fetchMailings with page:", page);
     dispatch(fetchMailings(pageFromQuery));
-
 
     return () => {
       dispatch(resetState());

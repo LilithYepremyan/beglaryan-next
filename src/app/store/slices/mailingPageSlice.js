@@ -114,7 +114,6 @@ export const mailingPageSlice = createSlice({
       state.isLoading = false;
 
       state.data = { ...state.data, ...action.payload };
-      console.log(state.data, "mailingpageslice")
     });
     builder.addCase(fetchMailing.rejected, (state, action) => {
       state.isLoading = false;

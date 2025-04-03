@@ -125,8 +125,6 @@ export default function FabricCard(props) {
 
   const fabricLink = `${window.location.origin}${process.env.NEXT_PUBLIC_PUBLIC_PATH}fabrics/${id}?lang=${currentLang}`;
 
-  console.log(fabricLink, "fabric link");
-
   return (
     <Card sx={{ width: "100%", minWidth: 300 }}>
       <CardMedia

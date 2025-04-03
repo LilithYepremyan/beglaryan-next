@@ -12,7 +12,6 @@ export const fetchFabric = createAsyncThunk(
   "fabricPage/fetchFabric",
   async (id) => {
     const response = await getFabric(id);
-    console.log(response, "fabric fetch");
 
     return response;
   }

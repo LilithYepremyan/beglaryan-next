@@ -20,7 +20,6 @@ export const fetchFabrics = createAsyncThunk(
       searchString
     );
 
-    console.log(response, "response");
     return response;
   }
 );
@@ -132,7 +131,6 @@ export const fabricsPageSlice = createSlice({
       const filters = action?.meta?.arg?.filters;
 
       state.data = { ...action.payload, filters };
-      console.log(state.data, " fabric page slice state.data");
     });
     builder.addCase(fetchFabrics.rejected, (state, action) => {
       state.isLoading = false;

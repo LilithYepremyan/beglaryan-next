@@ -1,5 +1,5 @@
-import { MEDIA_IMAGE_BASE_URL, MEDIA_VIDEO_BASE_URL } from './consts';
-import numberWithSpaces from '../../utils/numberWithSpaces';
+import { MEDIA_IMAGE_BASE_URL, MEDIA_VIDEO_BASE_URL } from "./consts";
+import numberWithSpaces from "../../utils/numberWithSpaces";
 
 export default function fabricFormatter(unformattedData) {
   const {
@@ -33,43 +33,38 @@ export default function fabricFormatter(unformattedData) {
   } = unformattedData;
 
   const images = media
-    .filter(x => x.tpe === 'image')
-    .map(x => {
-      const ext = x?.ext ? `.${x?.ext}` : '';
+    .filter((x) => x.tpe === "image")
+    .map((x) => {
+      const ext = x?.ext ? `.${x?.ext}` : "";
 
-      // return `${MEDIA_IMAGE_BASE_URL}/hd/${x.id}${ext}`;
-      return `${MEDIA_IMAGE_BASE_URL}/hd/${x.id}`;
-      
+      return `${MEDIA_IMAGE_BASE_URL}/hd/${x.id}.jpg`;
     });
 
   const videos = media
-    .filter(x => x.tpe === 'video')
-    .map(x => {
-      const ext = x?.ext ? `.${x?.ext}` : '';
+    .filter((x) => x.tpe === "video")
+    .map((x) => {
+      const ext = x?.ext ? `.${x?.ext}` : "";
 
-      // return `${MEDIA_VIDEO_BASE_URL}/hd/${x.id}${ext}`;
-      return `${MEDIA_VIDEO_BASE_URL}/hd/${x.id}`;
+      return `${MEDIA_VIDEO_BASE_URL}/thumbnail/${x.id}.jpg`;
     });
 
   const thumbnails = media
-    .filter(x => x.tpe === 'image')
-    .map(x => {
-      const ext = x?.ext ? `.${x?.ext}` : '';
+    .filter((x) => x.tpe === "image")
+    .map((x) => {
+      const ext = x?.ext ? `.${x?.ext}` : "";
 
-      // return `${MEDIA_IMAGE_BASE_URL}/thumbnail/${x.id}.jpg`;//TODO
-      return `${MEDIA_IMAGE_BASE_URL}/hd/${x.id}.jpg`;//TODO
+      return `${MEDIA_IMAGE_BASE_URL}/hd/${x.id}.jpg`; //TODO
     });
 
   const videoThumbnails = media
-    .filter(x => x.tpe === 'video')
-    .map(x => {
-      const ext = x?.ext ? `.jpg` : '';
+    .filter((x) => x.tpe === "video")
+    .map((x) => {
+      const ext = x?.ext ? `.jpg` : "";
 
-      // return `${MEDIA_VIDEO_BASE_URL}/thumbnail/${x.id}.jpg`;// TODO 
-      return `${MEDIA_VIDEO_BASE_URL}/hd/${x.id}.jpg`;// TODO 
+      return `${MEDIA_VIDEO_BASE_URL}/thumbnail/${x.id}.jpg`; // TODO
     });
 
-  const composition = compositionUnformatted.map(x => ({
+  const composition = compositionUnformatted.map((x) => ({
     material: x.code,
     materialFull: x.name,
     percent: x.value,
@@ -79,13 +74,26 @@ export default function fabricFormatter(unformattedData) {
 
   const brand = brandUnformatted?.name || null;
 
-  const type = typeUnformatted?.length > 0 ? typeUnformatted.map(x => x.name) : null;
-  const purpose = purposeUnformatted?.length > 0 ? purposeUnformatted.map(x => x.name) : null;
-  const weaving = weavingUnformatted?.length > 0 ? weavingUnformatted.map(x => x.name) : null;
-  const stretch = stretchUnformatted?.length > 0 ? stretchUnformatted.map(x => x.name) : null;
-  const color = colorUnformatted?.length > 0 ? colorUnformatted.map(x => x.name) : null;
+  const type =
+    typeUnformatted?.length > 0 ? typeUnformatted.map((x) => x.name) : null;
+  const purpose =
+    purposeUnformatted?.length > 0
+      ? purposeUnformatted.map((x) => x.name)
+      : null;
+  const weaving =
+    weavingUnformatted?.length > 0
+      ? weavingUnformatted.map((x) => x.name)
+      : null;
+  const stretch =
+    stretchUnformatted?.length > 0
+      ? stretchUnformatted.map((x) => x.name)
+      : null;
+  const color =
+    colorUnformatted?.length > 0 ? colorUnformatted.map((x) => x.name) : null;
 
-  const sale = discount ? { oldPrice: discount.price, percent: discount.percent } : null;
+  const sale = discount
+    ? { oldPrice: discount.price, percent: discount.percent }
+    : null;
   const country = countryOfOrigin?.name || null;
 
   if (sustainability?.water) {

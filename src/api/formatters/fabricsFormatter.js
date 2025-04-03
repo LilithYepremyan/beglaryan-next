@@ -9,7 +9,10 @@ export default function fabricsFormatter(unformattedData) {
     facets,
     ordering: sorts,
     currentOrdering: sortId,
-  } = unformattedData || {};
+  } = unformattedData.response || {};
+
+
+
 
   const optionFilters = facets.reduce((acc, facet) => {
     const options = facet.data.map(option => ({

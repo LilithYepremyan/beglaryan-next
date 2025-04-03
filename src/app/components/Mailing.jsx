@@ -27,7 +27,6 @@ export default function Mailing(props) {
 
   const { isNew, isSale, title, description, count, id, thumbnails } = props;
 
-  console.log(props, "props");
 
   return (
     <Card

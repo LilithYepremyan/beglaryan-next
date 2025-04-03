@@ -12,9 +12,6 @@ export default function mailingFormatter(unformattedData) {
     media,
   } = unformattedData || {};
 
-  console.log("description", description);
-  console.log("Media field:", media);
-
   const thumbnails = media.map((x) => {
     const ext = x?.ext ? `.${x?.ext}` : "";
 
