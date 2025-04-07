@@ -15,10 +15,10 @@ import Input from './Input';
 import { currentLang } from '../../i18n';
 import CloseIcon from '../../icons/CloseIcon';
 import FilterIcon from '../../icons/FilterIcon';
-import { headerHeight } from '../layout';
 import { events, Track } from '../../metrics';
 import delayCallback from '../../utils/delayCallback';
 import { useSearchParams } from 'next/navigation';
+import { HEADERHEIGHT } from '@/theme';
 
 const filters = {
   article: [],
@@ -176,9 +176,9 @@ export default function FabricSearch(props) {
             onClose={() => toggleFilter()}
             variant="temporary"
             sx={{
-              top: `${headerHeight}px`,
+              top: `${HEADERHEIGHT}px`,
               '& .MuiBackdrop-root': {
-                top: `${headerHeight}px`,
+                top: `${HEADERHEIGHT}px`,
               },
               '& .MuiDrawer-paper': {
                 boxSizing: 'border-box',

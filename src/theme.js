@@ -1,17 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 
-// import InterRegularTTF from './fonts/Inter-Regular.ttf';
-// import InterRegularWOFF from './fonts/Inter-Regular.woff';
-// import InterRegularWOFF2 from './fonts/Inter-Regular.woff2';
-// import InterSemiBoldTTF from './fonts/Inter-SemiBold.ttf';
-// import InterSemiBoldWOFF from './fonts/Inter-SemiBold.woff';
-// import InterSemiBoldWOFF2 from './fonts/Inter-SemiBold.woff2';
-// import PlayfairDisplayBoldTTF from './fonts/PlayfairDisplay-Bold.ttf';
-// import PlayfairDisplayBoldWOFF from './fonts/PlayfairDisplay-Bold.woff';
-// import PlayfairDisplayBoldWOFF2 from './fonts/PlayfairDisplay-Bold.woff2';
-// import PlayfairDisplayRegularTTF from './fonts/PlayfairDisplay-Regular.ttf';
-// import PlayfairDisplayRegularWOFF from './fonts/PlayfairDisplay-Regular.woff';
-// import PlayfairDisplayRegularWOFF2 from './fonts/PlayfairDisplay-Regular.woff2';
+
 
 export const breakpoints = {
   values: {
@@ -21,6 +10,8 @@ export const breakpoints = {
     lg: 1320,
   },
 };
+
+export const HEADERHEIGHT = 64
 
 export const colors = {
   totalBlack: "#000000",

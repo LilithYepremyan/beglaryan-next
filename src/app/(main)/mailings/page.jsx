@@ -6,12 +6,12 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "next/navigation";
 
-import Banner from "../components/Banner";
-import Mailing from "../components/Mailing";
-import Pagination from "../components/Pagination";
-import MailingSkeleton from "../components/skeletons/MailingSkeleton";
-import { events, track } from "../../metrics";
-import { fetchMailings, resetState } from "../store/slices/mailingsPageSlice";
+import Banner from "../../components/Banner";
+import Mailing from "../../components/Mailing";
+import Pagination from "../../components/Pagination";
+import MailingSkeleton from "../../components/skeletons/MailingSkeleton";
+import { events, track } from "../../../metrics";
+import { fetchMailings, resetState } from "../../store/slices/mailingsPageSlice";
 
 function Mailings() {
   const dispatch = useDispatch();
@@ -27,7 +27,6 @@ function Mailings() {
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", newPage.toString());
 
-    // router.push(`?${params.toString()}`, { scroll: false });
     dispatch(fetchMailings(newPage));
   };
 

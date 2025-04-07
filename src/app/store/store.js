@@ -4,8 +4,9 @@ import mailingsPageReducer from "./slices/mailingsPageSlice";
 import utmReducer from "./slices/utmSlice";
 import userReducer from "./slices/userSlice";
 import fabricsPageReducer from "./slices/fabricsPageSlice";
-import  mailingPageReducer  from "./slices/mailingPageSlice";
+import mailingPageReducer from "./slices/mailingPageSlice";
 import fabricPageReducer from "./slices/fabricPageSlice";
+import authReducer from "./slices/authSlice";
 
 export const makeStore = () =>
   configureStore({
@@ -17,7 +18,7 @@ export const makeStore = () =>
       fabricPage: fabricPageReducer,
       // wishlistPage: wishlistPageReducer,
       // cart: cartReducer,
-      // auth: authReducer,
+      auth: authReducer,
       // support: supportReducer,
       utm: utmReducer,
     },
