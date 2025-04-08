@@ -1,35 +1,39 @@
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import React, { useEffect } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import React, { useEffect } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
 
-import Input from './Input';
-import CloseIcon from '../../icons/CloseIcon';
-import SuccessIcon from '../../icons/SuccessIcon';
-import { events, Track } from '../../metrics';
-import { fetchCountries, resetState, sendSupportRequest } from '../store/slices/supportSlice';
+import Input from "./Input";
+import CloseIcon from "../../icons/CloseIcon";
+import SuccessIcon from "../../icons/SuccessIcon";
+import { events, Track } from "../../metrics";
+import {
+  fetchCountries,
+  resetState,
+  sendSupportRequest,
+} from "../store/slices/supportSlice";
 
 export default function SupportModal(props) {
   const { isOpen, close, title, text, type, userLogin, userPhone } = props;
 
-  const { t } = useTranslation(['modals']);
+  const { t } = useTranslation(["modals"]);
   const dispatch = useDispatch();
   const { handleSubmit, control, setValue, watch } = useForm({
     defaultValues: {
-      email: userLogin || '',
-      phone: userPhone || '',
+      email: userLogin || "",
+      phone: userPhone || "",
     },
   });
 
   const {
     data: { isSupportRequestSent, countries },
     isLoading,
-  } = useSelector(state => state.support);
+  } = useSelector((state) => state.support);
 
   useEffect(() => {
     if (countries.length === 0) {
@@ -45,7 +49,7 @@ export default function SupportModal(props) {
     }
 
     if (phone) {
-      request.phone = phone.replace('+', '');
+      request.phone = phone.replace("+", "");
     }
 
     dispatch(sendSupportRequest(request));
@@ -58,7 +62,7 @@ export default function SupportModal(props) {
       open={isOpen}
       onClose={() => {
         if (isSupportRequestSent) {
-          setValue('supportRequest', '');
+          setValue("supportRequest", "");
           dispatch(resetState());
         }
 
@@ -67,42 +71,44 @@ export default function SupportModal(props) {
     >
       <Paper
         sx={{
-          boxSizing: 'border-box',
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          display: 'flex',
-          flexDirection: 'column',
-          p: '32px',
-          transform: 'translate(-50%, -50%)',
-          maxWidth: '516px',
-          width: '90%',
-          borderRadius: '8px',
+          boxSizing: "border-box",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          display: "flex",
+          flexDirection: "column",
+          p: "32px",
+          transform: "translate(-50%, -50%)",
+          maxWidth: "516px",
+          width: "90%",
+          borderRadius: "8px",
         }}
       >
         <CloseIcon
           onClick={() => close()}
           sx={{
-            position: 'absolute',
-            top: '16px',
-            right: '16px',
-            color: 'colors.almostBlack',
-            cursor: 'pointer',
+            position: "absolute",
+            top: "16px",
+            right: "16px",
+            color: "colors.almostBlack",
+            cursor: "pointer",
           }}
         />
-        {isSupportRequestSent && <SuccessIcon sx={{ fontSize: '48px', mb: '32px' }} />}
+        {isSupportRequestSent && (
+          <SuccessIcon sx={{ fontSize: "48px", mb: "32px" }} />
+        )}
         {!isSupportRequestSent && <></>}
-        <Typography variant="h3" sx={{ mb: '8px' }}>
-          {isSupportRequestSent ? t('support.success.title') : title}
+        <Typography variant="h3" sx={{ mb: "8px" }}>
+          {isSupportRequestSent ? t("support.success.title") : title}
         </Typography>
 
-        <Typography sx={{ mb: '32px' }} variant="body2">
-          {isSupportRequestSent ? t('support.success.text') : text}
+        <Typography sx={{ mb: "32px" }} variant="body2">
+          {isSupportRequestSent ? t("support.success.text") : text}
         </Typography>
 
         {!isSupportRequestSent && (
           <form onSubmit={handleSubmit(onSubmit)}>
-            {type === 'auth' && (
+            {type === "auth" && (
               <>
                 <Controller
                   name="email"
@@ -113,8 +119,8 @@ export default function SupportModal(props) {
                       error={!!error?.message}
                       helperText={error?.message}
                       fullWidth
-                      label={t('auth:fields.email.label')}
-                      sx={{ mb: '32px' }}
+                      label={t("auth:fields.email.label")}
+                      sx={{ mb: "32px" }}
                       {...field}
                     />
                   )}
@@ -129,8 +135,8 @@ export default function SupportModal(props) {
                       error={!!error?.message}
                       helperText={error?.message}
                       fullWidth
-                      label={t('auth:fields.phone.label')}
-                      sx={{ mb: '32px' }}
+                      label={t("auth:fields.phone.label")}
+                      sx={{ mb: "32px" }}
                       {...field}
                     />
                   )}
@@ -145,12 +151,12 @@ export default function SupportModal(props) {
                 <Input
                   control={control}
                   fullWidth
-                  sx={{ fontWeight: '400' }}
+                  sx={{ fontWeight: "400" }}
                   multiline
                   rows={2}
                   error={!!error?.message}
                   helperText={error?.message}
-                  placeholder={t('support.placeholder')}
+                  placeholder={t("support.placeholder")}
                   {...field}
                 />
               )}
@@ -158,12 +164,12 @@ export default function SupportModal(props) {
 
             <Box
               sx={{
-                mt: '32px',
-                display: 'flex',
-                gap: '8px',
+                mt: "32px",
+                display: "flex",
+                gap: "8px",
                 flexDirection: {
-                  xs: 'column',
-                  sm: 'row',
+                  xs: "column",
+                  sm: "row",
                 },
               }}
             >
@@ -175,18 +181,20 @@ export default function SupportModal(props) {
                   close();
                 }}
               >
-                {t('support.buttonSecondary')}
+                {t("support.buttonSecondary")}
               </Button>
 
               <Button
-                disabled={!(watch('email') || watch('phone') || watch('supportRequest'))}
-                className={isLoading ? 'loading' : ''}
+                disabled={
+                  !(watch("email") || watch("phone") || watch("supportRequest"))
+                }
+                className={isLoading ? "loading" : ""}
                 color="primary"
                 variant="contained"
                 fullWidth
                 onClick={handleSubmit(onSubmit)}
               >
-                {t('support.buttonPrimary')}
+                {t("support.buttonPrimary")}
               </Button>
             </Box>
           </form>
@@ -194,22 +202,25 @@ export default function SupportModal(props) {
 
         {isSupportRequestSent && (
           <>
-            <Track eventName={events.modals.support.sent} eventProps={{ type, text: watch('supportRequest') }} />
+            <Track
+              eventName={events.modals.support.sent}
+              eventProps={{ type, text: watch("supportRequest") }}
+            />
 
             <Button
-              sx={{ mt: '32px' }}
+              sx={{ mt: "32px" }}
               color="white"
               variant="outlined"
               fullWidth
               onClick={() => {
                 if (isSupportRequestSent) {
-                  setValue('supportRequest', '');
+                  setValue("supportRequest", "");
                   dispatch(resetState());
                 }
                 close();
               }}
             >
-              {t('support.success.button')}
+              {t("support.success.button")}
             </Button>
           </>
         )}

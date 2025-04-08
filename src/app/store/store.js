@@ -7,6 +7,7 @@ import fabricsPageReducer from "./slices/fabricsPageSlice";
 import mailingPageReducer from "./slices/mailingPageSlice";
 import fabricPageReducer from "./slices/fabricPageSlice";
 import authReducer from "./slices/authSlice";
+import supportReducer from "./slices/supportSlice";
 
 export const makeStore = () =>
   configureStore({
@@ -19,7 +20,7 @@ export const makeStore = () =>
       // wishlistPage: wishlistPageReducer,
       // cart: cartReducer,
       auth: authReducer,
-      // support: supportReducer,
+      support: supportReducer,
       utm: utmReducer,
     },
   });

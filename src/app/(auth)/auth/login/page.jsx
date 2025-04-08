@@ -85,7 +85,7 @@ function Login() {
         {email && (
           <Typography variant="body2" sx={{ mb: "60px", fontSize: "14px" }}>
             {t("auth:login.already1")}{" "}
-            <CustomLink to={`/auth/recovery?email=${email}`}>
+            <CustomLink href={`/auth/recovery?email=${email}`}>
               {t("auth:login.restore")}
             </CustomLink>{" "}
             {t("auth:login.already2")}
@@ -166,7 +166,7 @@ function Login() {
             color="white"
             sx={{ width: "100%" }}
             component={CustomLink}
-            to={`/auth/recovery${
+            href={`/auth/recovery${
               watch("userLogin") || email
                 ? `?email=${watch("userLogin") || email}`
                 : ""
@@ -182,7 +182,7 @@ function Login() {
             color="white"
             sx={{ width: "100%" }}
             component={CustomLink}
-            to={"/auth/register"}
+            href={"/auth/register"}
             onClick={() => {
               track(events.loginPage.createAccountButton.click);
             }}
