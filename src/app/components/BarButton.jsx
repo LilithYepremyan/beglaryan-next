@@ -15,7 +15,7 @@ export default function BarButton(props) {
   return (
     <Button
       component={component}
-      to={to}
+      href={to}
       disabled={disabled}
       onClick={onClick}
       variant={variant}

@@ -452,7 +452,7 @@ export default function FabricCard(props) {
                 onClick={() => {
                   track(events.fabric.goToCart);
                 }}
-                to={"/cart"}
+                href={"/cart"}
               >
                 {t("fabric:buttons.inCart")}
               </Button>
@@ -470,7 +470,7 @@ export default function FabricCard(props) {
                 onClick={() => {
                   track(events.fabric.goToCart);
                 }}
-                to={"/cart"}
+                href={"/cart"}
               >
                 {t("fabric:buttons.sampleInCart")}
               </Button>

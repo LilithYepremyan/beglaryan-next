@@ -78,7 +78,7 @@ export default function AddToCartModal(props) {
             close();
           }}
           component={Link}
-          to={"/cart"}
+          href={"/cart"}
         >
           {t("addToCart.goToCartButton")}
         </Button>
