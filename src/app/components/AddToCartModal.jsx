@@ -1,66 +1,68 @@
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
-import Time from './Time';
-import CartIconEmpty from '../../icons/CartIconEmpty';
-import CloseIcon from '../../icons/CloseIcon';
-import { events, track, Track } from '../../metrics';
-import Link from 'next/link';
+import Time from "./Time";
+import CartIconEmpty from "../../icons/CartIconEmpty";
+import CloseIcon from "../../icons/CloseIcon";
+import { events, track, Track } from "../../metrics";
+import Link from "next/link";
 
 export default function AddToCartModal(props) {
   const { isOpen, close } = props;
 
-  const { t } = useTranslation(['modals']);
+  const { t } = useTranslation(["modals"]);
 
   const {
-    data: {
-      reservationTimeoutInMinutes,
-      stats: {
-        cart: { sum },
-      },
-    },
-  } = useSelector(state => state.user);
+    data: { reservationTimeoutInMinutes },
+  } = useSelector((state) => state.user);
 
   return (
-    <Modal disableAutoFocus={true} disableEnforceFocus={true} open={isOpen} onClose={close}>
+    <Modal
+      disableAutoFocus={true}
+      disableEnforceFocus={true}
+      open={isOpen}
+      onClose={close}
+    >
       <Paper
         sx={{
-          boxSizing: 'border-box',
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          display: 'flex',
-          flexDirection: 'column',
-          p: '32px',
-          transform: 'translate(-50%, -50%)',
-          maxWidth: '356px',
-          width: '90%',
-          borderRadius: '8px',
+          boxSizing: "border-box",
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          display: "flex",
+          flexDirection: "column",
+          p: "32px",
+          transform: "translate(-50%, -50%)",
+          maxWidth: "356px",
+          width: "90%",
+          borderRadius: "8px",
         }}
       >
         <CloseIcon
           onClick={() => close()}
           sx={{
-            position: 'absolute',
-            top: '16px',
-            right: '16px',
-            color: 'colors.almostBlack',
-            cursor: 'pointer',
+            position: "absolute",
+            top: "16px",
+            right: "16px",
+            color: "colors.almostBlack",
+            cursor: "pointer",
           }}
         />
-        <CartIconEmpty sx={{ color: 'colors.almostBlack', fontSize: '48px', mb: '32px' }} />
-        <Typography variant="h3" sx={{ mb: '24px' }}>
-          {t('addToCart.title')}
+        <CartIconEmpty
+          sx={{ color: "colors.almostBlack", fontSize: "48px", mb: "32px" }}
+        />
+        <Typography variant="h3" sx={{ mb: "24px" }}>
+          {t("addToCart.title")}
         </Typography>
-        <Typography variant="body2" sx={{ mb: '16px' }}>
-          {t('addToCart.text')}{' '}
+        <Typography variant="body2" sx={{ mb: "16px" }}>
+          {t("addToCart.text")}{" "}
           <Time
-            sx={{ fontWeight: 'bold', color: 'colors.almostBlack' }}
+            sx={{ fontWeight: "bold", color: "colors.almostBlack" }}
             fullTimeUnits
             timeInMinutes={reservationTimeoutInMinutes}
           />
@@ -70,15 +72,15 @@ export default function AddToCartModal(props) {
           color="secondary"
           variant="contained"
           fullWidth
-          sx={{ mb: '8px' }}
+          sx={{ mb: "8px" }}
           onClick={() => {
             track(events.modals.addToCart.goToCart);
             close();
           }}
           component={Link}
-          to={'/cart'}
+          to={"/cart"}
         >
-          {t('addToCart.goToCartButton')}
+          {t("addToCart.goToCartButton")}
         </Button>
         <Button
           color="primary"
@@ -89,7 +91,7 @@ export default function AddToCartModal(props) {
             close();
           }}
         >
-          {t('addToCart.continueButton')}
+          {t("addToCart.continueButton")}
         </Button>
 
         <Track eventName={events.modals.addToCart.shown} />

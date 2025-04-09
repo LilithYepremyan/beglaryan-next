@@ -60,7 +60,7 @@ export default function LoginRegister(props) {
             color="primary"
             sx={{ width: '100%' }}
             component={CustomLink}
-            to={'/auth/login'}
+            href={'/auth/login'}
             passfrom="true"
             onClick={() => {
               track(events.modals.loginRegister.loginButton.click);
@@ -74,7 +74,7 @@ export default function LoginRegister(props) {
             sx={{ width: '100%' }}
             component={CustomLink}
             passfrom="true"
-            to={'/auth/register'}
+            href={'/auth/register'}
             onClick={() => {
               track(events.modals.loginRegister.registerButton.click);
             }}

@@ -20,7 +20,7 @@ import {
   resetAction,
   resetError,
 } from "../../../store/slices/authSlice";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 function Register() {
   const { t } = useTranslation(["auth"]);
@@ -127,7 +127,7 @@ function Register() {
         color="secondary"
         sx={{ mb: "60px" }}
         component={CustomLink}
-        to={"/auth/login"}
+        href={"/auth/login"}
         onClick={() => {
           track(events.registerPage.alreadyHaveAnAccountButton.click);
         }}

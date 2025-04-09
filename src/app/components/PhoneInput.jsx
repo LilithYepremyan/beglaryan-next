@@ -1,18 +1,18 @@
-import Autocomplete from '@mui/material/Autocomplete';
-import Box from '@mui/material/Box';
-import FormControl from '@mui/material/FormControl';
-import NativeSelect from '@mui/material/NativeSelect';
-import Popper from '@mui/material/Popper';
-import Typography from '@mui/material/Typography';
-import React, { useEffect, useState } from 'react';
-import { Controller } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
-import PhoneInput from 'react-phone-input-2';
+import Autocomplete from "@mui/material/Autocomplete";
+import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
+import NativeSelect from "@mui/material/NativeSelect";
+import Popper from "@mui/material/Popper";
+import Typography from "@mui/material/Typography";
+import React, { useEffect, useState } from "react";
+import { Controller } from "react-hook-form";
+import { useTranslation } from "react-i18next";
+import PhoneInput from "react-phone-input-2";
 
-import Input from './Input';
-import { currentLang } from '../../i18n';
-import { colors } from '../../theme';
-import isMobile from '../../utils/isMobile';
+import Input from "./Input";
+import { currentLang } from "../../i18n";
+import { colors } from "../../theme";
+import isMobile from "../../utils/isMobile";
 
 export default function BfPhoneInput(props) {
   const { countryControl, phoneControl, countries, setValue, watch } = props;
@@ -20,23 +20,23 @@ export default function BfPhoneInput(props) {
   const [selectedCountry, setSelectedCountry] = useState(null);
 
   useEffect(() => {
-    if (currentLang === 'fr') {
-      const france = countries.find(x => x.code === 'FR');
+    if (currentLang === "fr") {
+      const france = countries.find((x) => x.code === "FR");
 
       if (france) {
-        setSelectedCountry('fr');
-        setValue('country', france);
-        setValue('phone', `+${france.phoneCode}`);
+        setSelectedCountry("fr");
+        setValue("country", france);
+        setValue("phone", `+${france.phoneCode}`);
       }
     }
 
-    if (currentLang === 'cn') {
-      const china = countries.find(x => x.code === 'CN');
+    if (currentLang === "cn") {
+      const china = countries.find((x) => x.code === "CN");
 
       if (china) {
-        setSelectedCountry('cn');
-        setValue('country', china);
-        setValue('phone', `+${china.phoneCode}`);
+        setSelectedCountry("cn");
+        setValue("country", china);
+        setValue("phone", `+${china.phoneCode}`);
       }
     }
   }, [currentLang, countries]);
@@ -45,15 +45,18 @@ export default function BfPhoneInput(props) {
 
   return (
     <>
-      <Typography sx={{ fontSize: '14px', fontWeight: 600, mb: '8px' }}>
-        {t('auth:fields.country.label')} <span style={{ color: colors.red }}>*</span>
+      <Typography sx={{ fontSize: "14px", fontWeight: 600, mb: "8px" }}>
+        {t("auth:fields.country.label")}{" "}
+        <span style={{ color: colors.red }}>*</span>
       </Typography>
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px', mb: '8px' }}>
+      <Box
+        sx={{ display: "flex", flexDirection: "column", gap: "8px", mb: "8px" }}
+      >
         <Controller
           name="country"
           rules={{
-            required: { value: true, message: t('common:errors.required') },
+            required: { value: true, message: t("common:errors.required") },
           }}
           control={countryControl}
           defaultValue={null}
@@ -64,31 +67,33 @@ export default function BfPhoneInput(props) {
                   <NativeSelect
                     sx={{ opacity: 0 }}
                     variant="outlined"
-                    onChange={e => {
+                    onChange={(e) => {
                       const {
                         target: { value: selectValue },
                       } = e;
-                      const currentCountry = countries.find(x => x.name === selectValue);
+                      const currentCountry = countries.find(
+                        (x) => x.name === selectValue
+                      );
 
                       if (currentCountry?.phoneCode) {
-                        setValue('country', `+${currentCountry?.id}`);
+                        setValue("country", `+${currentCountry?.id}`);
                         setSelectedCountry(currentCountry?.code?.toLowerCase());
                       }
 
                       onChange(currentCountry);
                     }}
                   >
-                    {countries.map(x => (
+                    {countries.map((x) => (
                       <option value={x.name} key={x.name}>
                         {x.name}
                       </option>
                     ))}
                   </NativeSelect>
                   <Input
-                    sx={{ marginTop: '-48px', pointerEvents: 'none' }}
+                    sx={{ marginTop: "-48px", pointerEvents: "none" }}
                     error={!!error?.message}
                     helperText={error?.message}
-                    value={`${value?.name || ''}`}
+                    value={`${value?.name || ""}`}
                   />
                 </>
               )}
@@ -96,23 +101,34 @@ export default function BfPhoneInput(props) {
                 <Autocomplete
                   disableClearable
                   options={countries}
-                  PopperComponent={popperProps => <Popper {...popperProps} sx={{ minWidth: '300px' }} />}
+                  PopperComponent={(popperProps) => (
+                    <Popper {...popperProps} sx={{ minWidth: "300px" }} />
+                  )}
                   autoHighlight
                   filterOptions={(options, state) => {
                     const { inputValue } = state;
 
                     return options.filter(
-                      x =>
-                        x.phoneCode.startsWith(inputValue) || x.name.toLowerCase().startsWith(inputValue.toLowerCase()),
+                      (x) =>
+                        x.phoneCode.startsWith(inputValue) ||
+                        x.name
+                          .toLowerCase()
+                          .startsWith(inputValue.toLowerCase())
                     );
                   }}
-                  getOptionLabel={option => option.name}
+                  getOptionLabel={(option) => option.name}
                   renderOption={(optionProps, option) => (
                     <Typography {...optionProps} key={option.name}>
                       {option.name}
                     </Typography>
                   )}
-                  renderInput={params => <Input helperText={error?.message} error={!!error?.message} {...params} />}
+                  renderInput={(params) => (
+                    <Input
+                      helperText={error?.message}
+                      error={!!error?.message}
+                      {...params}
+                    />
+                  )}
                   onChange={(e, data) => {
                     if (data?.phoneCode) {
                       setSelectedCountry(data?.code?.toLowerCase());
@@ -139,46 +155,64 @@ export default function BfPhoneInput(props) {
           render={({ field, _arg, fieldState: { error } }) => (
             <Box
               sx={{
-                '& .form-control:focus': {
-                  border: `1px solid ${error ? colors.red : colors.mediumGrey} !important`,
-                  outline: 'none',
+                "& .form-control:focus": {
+                  border: `1px solid ${
+                    error ? colors.red : colors.mediumGrey
+                  } !important`,
+                  outline: "none",
                 },
-                '& .form-control:hover': {
-                  border: `1px solid ${error ? colors.red : colors.mediumGrey} !important`,
+                "& .form-control:hover": {
+                  border: `1px solid ${
+                    error ? colors.red : colors.mediumGrey
+                  } !important`,
                 },
-                '& .form-control': {
-                  border: `1px solid ${error ? colors.red : colors.lightGrey} !important`,
+                "& .form-control": {
+                  border: `1px solid ${
+                    error ? colors.red : colors.lightGrey
+                  } !important`,
                   fontWeight: 600,
-                  fontSize: '14px',
-                  borderRadius: '8px',
-                  padding: '14px',
-                  width: '100%',
+                  fontSize: "14px",
+                  borderRadius: "8px",
+                  padding: "14px",
+                  width: "100%",
                   color: error ? colors.red : null,
                 },
-                '& .form-control:disabled': {
-                  border: `1px solid ${error ? colors.red : colors.lightGrey} !important`,
+                "& .form-control:disabled": {
+                  border: `1px solid ${
+                    error ? colors.red : colors.lightGrey
+                  } !important`,
                   fontWeight: 400,
-                  fontSize: '14px',
-                  borderRadius: '8px',
-                  padding: '14px',
-                  width: '100%',
+                  fontSize: "14px",
+                  borderRadius: "8px",
+                  padding: "14px",
+                  width: "100%",
                   color: error ? colors.red : null,
                 },
-                '& .form-control:disabled::placeholder': {
+                "& .form-control:disabled::placeholder": {
                   color: error ? colors.red : null,
                   opacity: { xs: 1, sm: 0.4 },
                 },
               }}
             >
-              <Typography sx={{ fontSize: '14px', fontWeight: 600, mt: '24px', mb: '8px' }}>
-                {t('auth:fields.phone.label')} <span style={{ color: colors.red }}>*</span>
+              <Typography
+                sx={{
+                  fontSize: "14px",
+                  fontWeight: 600,
+                  mt: "24px",
+                  mb: "8px",
+                }}
+              >
+                {t("auth:fields.phone.label")}{" "}
+                <span style={{ color: colors.red }}>*</span>
               </Typography>
 
               <PhoneInput
                 {...field}
                 specialLabel=""
-                value={watch('phone')}
-                placeholder={!selectedCountry ? t('auth:fields.phone.placeholder') : ''}
+                value={watch("phone")}
+                placeholder={
+                  !selectedCountry ? t("auth:fields.phone.placeholder") : ""
+                }
                 enableLongNumbers={true}
                 country={selectedCountry}
                 disabled={!selectedCountry}
@@ -187,12 +221,12 @@ export default function BfPhoneInput(props) {
               <Typography
                 variant="body2"
                 sx={{
-                  mt: '8px',
-                  fontSize: '12px',
-                  color: error ? 'colors.red' : 'colors.darkGrey',
+                  mt: "8px",
+                  fontSize: "12px",
+                  color: error ? "colors.red" : "colors.darkGrey",
                 }}
               >
-                {t('auth:fields.phone.description')}
+                {t("auth:fields.phone.description")}
               </Typography>
             </Box>
           )}

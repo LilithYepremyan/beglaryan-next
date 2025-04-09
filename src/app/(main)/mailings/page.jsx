@@ -11,7 +11,10 @@ import Mailing from "../../components/Mailing";
 import Pagination from "../../components/Pagination";
 import MailingSkeleton from "../../components/skeletons/MailingSkeleton";
 import { events, track } from "../../../metrics";
-import { fetchMailings, resetState } from "../../store/slices/mailingsPageSlice";
+import {
+  fetchMailings,
+  resetState,
+} from "../../store/slices/mailingsPageSlice";
 
 function Mailings() {
   const dispatch = useDispatch();
