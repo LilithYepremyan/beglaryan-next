@@ -9,7 +9,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 import LangPicker from "../components/LangPicker";
 import Logo from "../components/Logo";
-import authBackground from "../../images/auth.jpg";
+// import authBackground from "../../../public/images/auth.jpg";
+
 import { fetchUser } from "../store/slices/userSlice";
 
 export default function AuthLayout({ children }) {
@@ -60,7 +61,7 @@ export default function AuthLayout({ children }) {
             background: `
               linear-gradient(0deg, rgba(19, 33, 70, 0.60) 0%,
               rgba(19, 33, 70, 0.60) 100%),
-              url(${authBackground}),
+              url("/images/auth.jpg"),
               lightgray 50% / cover no-repeat
             `,
             padding: {

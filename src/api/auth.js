@@ -33,6 +33,7 @@ async function getRegistration() {
 }
 
 async function postRegistration(registrationProps) {
+  console.log(registrationProps, "registration props")
   return client
     .post(`/registration`, {
       ...registrationProps,

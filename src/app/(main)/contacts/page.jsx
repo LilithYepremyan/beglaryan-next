@@ -15,7 +15,7 @@ import InstagramIcon from "../../../icons/InstagramIcon";
 import TelegramIcon from "../../../icons/TelegramIcon";
 import WeChatIcon from "../../../icons/WeChatIcon";
 import WhatsAppIcon from "../../../icons/WhatsAppIcon";
-import WeChatImg from "../../../images/weChat.jpg";
+import WeChatImg from "../../../../public/images/weChat.jpg";
 import { events, Track } from "../../../metrics";
 import { colors } from "../../../theme";
 

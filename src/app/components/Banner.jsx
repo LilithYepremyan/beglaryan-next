@@ -6,10 +6,11 @@ import { Trans, useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
 import ChinaB2B from "./banners/ChinaB2B";
-import Link from "./CustomLink";
-import defaultBanner from "../../images/defaultBanner.jpg";
+import CustomLink from "./CustomLink";
 
-import registerBanner from "../../images/register.jpg";
+// import defaultBanner from "../../../public/images/defaultBanner.jpg";
+// import registerBanner from "../../../public/images/register.jpg";
+
 import { events, track, Track } from "../../metrics";
 import CloseIcon from "@/icons/CloseIcon";
 
@@ -31,7 +32,7 @@ export default function Banner(props) {
     {
       name: "firstOrder",
       pages: ["register"],
-      backgroundImage: registerBanner,
+      backgroundImage: "/images/register.jpg",
       defaultConfig: {
         count: 1,
         isVisible: true,
@@ -135,7 +136,9 @@ export default function Banner(props) {
                 background: `
                                 linear-gradient(0deg, rgba(19, 33, 70, 0.50) 20%, 
                                 rgba(19, 33, 70, 0.20) 100%), 
-                                url(${backgroundImage || defaultBanner}), 
+                                url(${
+                                  backgroundImage || "/images/defaultBanner.jpg"
+                                }), 
                                 lightgray 80% / cover no-repeat
                             `,
                 backgroundSize: "cover",
@@ -199,7 +202,7 @@ export default function Banner(props) {
 
                 {!!buttonText && !!onClick && (
                   <Button
-                    component={Link}
+                    component={CustomLink}
                     onClick={() => {
                       track(events.banner.link.click);
 

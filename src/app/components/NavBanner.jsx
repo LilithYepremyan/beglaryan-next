@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 
 import CustomLink from "./CustomLink";
-import navBannerBackground from "../../images/navBanner.jpg";
+import navBannerBackground from "../../../public/images/navBanner.jpg";
 import { events, track } from "../../metrics";
 
 export default function NavBanner(props) {

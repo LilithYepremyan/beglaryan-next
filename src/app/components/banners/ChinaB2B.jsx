@@ -7,8 +7,8 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import CloseIcon from "../../../icons/CloseIcon";
-import defaultBanner from "../../../images/defaultBanner.jpg";
-import WeChatImg from "../../../images/weChat.jpg";
+import defaultBanner from "../../../../public/images/defaultBanner.jpg";
+import WeChatImg from "../../../../public/images/weChat.jpg";
 import { events, track } from "../../../metrics";
 
 export default function Banner(props) {

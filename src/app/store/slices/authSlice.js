@@ -155,7 +155,7 @@ export const fetchCountriesAndActivities = createAsyncThunk(
   async () => {
     const response = await getRegistration();
 
-    return response;
+    return response.response;
   }
 );
 
