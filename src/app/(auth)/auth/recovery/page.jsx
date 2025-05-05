@@ -9,11 +9,11 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams, useParams, useRouter } from "next/navigation";
 
-import Input from "../../../components/Input";
-import CustomLink from "../../../components/CustomLink";
-import SupportModal from "../../../components/SupportModal";
-import { events, track, Track } from "../../../../metrics";
-import { recovery, reset, resetError } from "../../../store/slices/authSlice";
+import Input from "@/app/components/Input";
+import CustomLink from "@/app/components/CustomLink";
+import SupportModal from "@/app/components/SupportModal";
+import { events, track, Track } from "@/metrics";
+import { recovery, reset, resetError } from "@/app/store/slices/authSlice";
 
 export default function PasswordRecovery() {
   const { t } = useTranslation(["auth"]);

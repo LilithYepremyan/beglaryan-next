@@ -3,10 +3,10 @@ import Link from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
 import React from "react";
 
-import LinkIcon from "../../icons/LikeIcon";
-import LocationIcon from "../../icons/LocationIcon";
-import MailIcon from "../../icons/MailIcon";
-import PhoneIcon from "../../icons/PhoneIcon";
+import LinkIcon from "@/icons/LikeIcon";
+import LocationIcon from "@/icons/LocationIcon";
+import MailIcon from "@/icons/MailIcon";
+import PhoneIcon from "@/icons/PhoneIcon";
 
 const ContactItem = styled((props) => <Box {...props} />)(() => ({
   display: "flex",

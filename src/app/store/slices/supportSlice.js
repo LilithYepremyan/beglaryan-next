@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { postSupport, getRegistration } from '../../../api';
+import { postSupport, getRegistration } from '@/api';
 
 export const sendSupportRequest = createAsyncThunk(
   'support/sendSupportRequest',

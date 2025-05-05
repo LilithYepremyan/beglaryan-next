@@ -7,9 +7,9 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
 import Time from "./Time";
-import CartIconEmpty from "../../icons/CartIconEmpty";
-import CloseIcon from "../../icons/CloseIcon";
-import { events, track, Track } from "../../metrics";
+import CartIconEmpty from "@/icons/CartIconEmpty";
+import CloseIcon from "@/icons/CloseIcon";
+import { events, track, Track } from "@/metrics";
 import Link from "next/link";
 
 export default function AddToCartModal(props) {

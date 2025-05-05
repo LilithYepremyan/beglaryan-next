@@ -7,7 +7,7 @@ import {
   postWishlistItem,
   deleteWishlistItem,
   postCartItem,
-} from "../../../api";
+} from "@/api";
 
 export const fetchMailing = createAsyncThunk(
   "mailingPage/fetchMailing",

@@ -1,6 +1,6 @@
 import React from "react";
 import CustomLink from "./CustomLink";
-import LogoWhite from "../../../public/images/beglarian_fabrics_logo_white.svg";
+import LogoWhite from "@/images/beglarian_fabrics_logo_white.svg";
 import Image from "next/image";
 
 export default function Logo(props) {

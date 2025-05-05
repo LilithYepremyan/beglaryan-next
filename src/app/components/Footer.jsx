@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 import Box from "@mui/material/Box";
@@ -10,8 +10,8 @@ import { useTranslation } from "react-i18next";
 import Contacts from "./Contacts";
 import LangPicker from "./LangPicker";
 import Logo from "./Logo";
-import { currentLang } from "../../i18n";
-import { colors as palette } from "../../theme";
+import { currentLang } from "@/i18n";
+import { colors as palette } from "@/theme";
 import Link from "next/link";
 
 const CustomLink = styled(Link)(({ theme }) => ({
@@ -87,7 +87,7 @@ export default function Footer({ elementRef }) {
           />
           <CustomLink
             href="https://beglarianfabrics.com/mentionslegales"
-            target="_blank" 
+            target="_blank"
           >
             {t("legalNotice")}
           </CustomLink>

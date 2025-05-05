@@ -10,10 +10,10 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import PageHeader from '../../components/PageHeader';
-import { timeFromMinutes } from '../../components/Time';
-import PlusIcon from '../../../icons/PlusIcon';
-import { events, track, Track } from '../../../metrics';
+import PageHeader from '@/app/components/PageHeader';
+import { timeFromMinutes } from '@/app/components/Time';
+import PlusIcon from '@/icons/PlusIcon';
+import { events, track, Track } from '@/metrics';
 
 const Accordion = styled(props => <MuiAccordion disableGutters elevation={0} square {...props} />)(({ theme }) => ({}));
 

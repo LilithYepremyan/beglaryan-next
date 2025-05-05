@@ -4,7 +4,7 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 
 import CustomLink from "./CustomLink";
-import WarningIcon from "../../icons/WarningIcon";
+import WarningIcon from "@/icons/WarningIcon";
 
 export default function Placeholder(props) {
   const { onClearFilters, sx } = props;

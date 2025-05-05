@@ -3,8 +3,8 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 
 import IconButton from './IconButton';
-import ArrowLeftIcon from '../../icons/ArrowLeftIcon';
-import ArrowRightIcon from '../../icons/ArrowRightIcon';
+import ArrowLeftIcon from '@/icons/ArrowLeftIcon';
+import ArrowRightIcon from '@/icons/ArrowRightIcon';
 
 export default function SliderControl(props) {
   const { current = 1, to, handleNext, handlePrev, inset = true } = props;

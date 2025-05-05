@@ -4,8 +4,8 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-import CloseIcon from '../../icons/CloseIcon';
-import CO2Icon from '../../icons/CO2Icon';
+import CloseIcon from '@/icons/CloseIcon';
+import CO2Icon from '@/icons/CO2Icon';
 
 export default function CO2Modal(props) {
   const { isOpen, close } = props;

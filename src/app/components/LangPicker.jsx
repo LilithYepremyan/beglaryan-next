@@ -5,8 +5,8 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import Select from '@mui/material/Select';
 import React from 'react';
 
-import { currentLang } from '../../i18n';
-import ArrowDownIcon from '../../icons/ArrowDownIcon';
+import { currentLang } from '@/i18n';
+import ArrowDownIcon from '@/icons/ArrowDownIcon';
 
 const languages = [
   {

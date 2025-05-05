@@ -11,7 +11,7 @@ import CustomLink from "./CustomLink";
 // import defaultBanner from "../../../public/images/defaultBanner.jpg";
 // import registerBanner from "../../../public/images/register.jpg";
 
-import { events, track, Track } from "../../metrics";
+import { events, track, Track } from "@/metrics";
 import CloseIcon from "@/icons/CloseIcon";
 
 export default function Banner(props) {

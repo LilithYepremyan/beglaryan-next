@@ -2,8 +2,8 @@ import Box from '@mui/material/Box';
 import React from 'react';
 
 import BarButton from './BarButton';
-import CartIconEmpty from '../../icons/CartIconEmpty';
-import CartIconFull from '../../icons/CartIconFull';
+import CartIconEmpty from '@/icons/CartIconEmpty';
+import CartIconFull from '@/icons/CartIconFull';
 import Link from 'next/link';
 
 export default function BarCart(props) {

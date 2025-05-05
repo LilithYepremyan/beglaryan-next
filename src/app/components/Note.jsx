@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 import * as React from 'react';
 
-import WarningIcon from '../../icons/WarningIcon';
-import { colors as palette } from '../../theme';
+import WarningIcon from '@/icons/WarningIcon';
+import { colors as palette } from '@/theme';
 
 const backgrounds = {
   success: palette.gold,

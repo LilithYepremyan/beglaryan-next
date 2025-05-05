@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next';
 
 import IconButton from './IconButton';
 import Input from './Input';
-import MinusIcon from '../../icons/MinusIcon';
-import PlusIcon from '../../icons/PlusIcon';
+import MinusIcon from '@/icons/MinusIcon';
+import PlusIcon from '@/icons/PlusIcon';
 
 export default function LengthInput(props) {
   const { length, setLength, max, min, isError, sx, onPlus, onMinus } = props;

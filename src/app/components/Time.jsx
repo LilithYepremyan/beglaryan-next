@@ -2,7 +2,7 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import pluralize from "../../utils/pluralize"
+import pluralize from "@/utils/pluralize"
 
 const timeFromMinutes = (timeInMinutes, fullTimeUnits = false) => {
   const { t } = useTranslation(['common']);

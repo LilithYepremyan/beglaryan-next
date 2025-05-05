@@ -10,7 +10,7 @@ import * as React from "react";
 
 import Label from "./Label";
 import Link from "./CustomLink";
-import { colors as palette } from "../../theme";
+import { colors as palette } from "@/theme";
 import { usePathname } from "next/navigation";
 
 const ListItemButton = styled((props) => <MuiListItemButton {...props} />)(

@@ -9,9 +9,9 @@ import {
   getUserOrder,
   getUserInvoices,
   getUserInvoice,
-} from '../../../api';
-import { setUserInfo } from '../../../metrics/amplitude';
-import generateId from '../../../utils/generateId';
+} from '@/api';
+import { setUserInfo } from '@/metrics/amplitude';
+import generateId from '@/utils/generateId';
 
 export const fetchUser = createAsyncThunk('user/fetchUser', async (_arg, thunkAPI) => {
   const response = await getUser();

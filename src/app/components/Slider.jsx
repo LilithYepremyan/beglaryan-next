@@ -6,8 +6,8 @@ import Box from '@mui/material/Box';
 
 import IconButton from './IconButton';
 import SliderControl from './SliderControl';
-import PlayIcon from '../../icons/PlayIcon';
-import spinner from '../../../public/images/spinner.svg';
+import PlayIcon from '@/icons/PlayIcon';
+import spinner from '@/images/spinner.svg';
 
 export default props => {
   const { images = [], videos = [], videoThumbnails = [], controls, setCurrent, onChange } = props;

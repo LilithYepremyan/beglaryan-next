@@ -6,7 +6,7 @@ import Select from '@mui/material/Select';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 
-import ArrowDownIcon from '../../icons/ArrowDownIcon';
+import ArrowDownIcon from '@/icons/ArrowDownIcon';
 
 export default function FabricSort(props) {
   const { onSortChange, sorts: sortsFromProps = [], currentSortId, sx } = props;

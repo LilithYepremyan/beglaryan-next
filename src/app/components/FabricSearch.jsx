@@ -12,11 +12,11 @@ import FabricFilters from './FabricFilters';
 import FabricSort from './FabricSort';
 import IconButton from './IconButton';
 import Input from './Input';
-import { currentLang } from '../../i18n';
-import CloseIcon from '../../icons/CloseIcon';
-import FilterIcon from '../../icons/FilterIcon';
-import { events, Track } from '../../metrics';
-import delayCallback from '../../utils/delayCallback';
+import { currentLang } from '@/i18n';
+import CloseIcon from '@/icons/CloseIcon';
+import FilterIcon from '@/icons/FilterIcon';
+import { events, Track } from '@/metrics';
+import delayCallback from '@/utils/delayCallback';
 import { useSearchParams } from 'next/navigation';
 import { HEADERHEIGHT } from '@/theme';
 

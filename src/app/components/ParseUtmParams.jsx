@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { setUtmParams } from "../store/slices/utmSlice";
+import { setUtmParams } from "@/store/slices/utmSlice";
 import { useSearchParams } from "next/navigation";
 
 export default function ParseUtmParams() {

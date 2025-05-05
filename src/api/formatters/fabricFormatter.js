@@ -1,5 +1,5 @@
 import { MEDIA_IMAGE_BASE_URL, MEDIA_VIDEO_BASE_URL } from "./consts";
-import numberWithSpaces from "../../utils/numberWithSpaces";
+import numberWithSpaces from "@/utils/numberWithSpaces";
 
 export default function fabricFormatter(unformattedData) {
   const {

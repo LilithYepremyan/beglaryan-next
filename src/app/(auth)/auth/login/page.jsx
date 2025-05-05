@@ -8,12 +8,13 @@ import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
-import Input from "../../../components/Input";
-import CustomLink from "../../../components/CustomLink";
-import SupportModal from "../../../components/SupportModal";
-import { events, track, Track } from "../../../../metrics";
-import { login, resetError } from "../../../store/slices/authSlice";
+import SupportModal from "@/app/components/SupportModal";
+import { events, track, Track } from "@/metrics";
+
 import { useSearchParams } from "next/navigation";
+import Input from "@/app/components/Input";
+import { login, resetError } from "@/app/store/slices/authSlice";
+import CustomLink from "@/app/components/CustomLink";
 
 function Login() {
   const { t } = useTranslation([]);

@@ -9,9 +9,9 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
 import Input from "./Input";
-import CloseIcon from "../../icons/CloseIcon";
-import SuccessIcon from "../../icons/SuccessIcon";
-import { events, Track } from "../../metrics";
+import CloseIcon from "@/icons/CloseIcon";
+import SuccessIcon from "@/icons/SuccessIcon";
+import { events, Track } from "@/metrics";
 import {
   fetchCountries,
   resetState,

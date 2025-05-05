@@ -24,16 +24,16 @@ import Note from "./Note";
 import Price from "./Price";
 import Slider from "./Slider";
 import { currentLang } from "../../i18n";
-import CartIconEmpty from "../../icons/CartIconEmpty";
-import CartIconFull from "../../icons/CartIconFull";
-import CO2Icon from "../../icons/CO2Icon";
-import CopyIcon from "../../icons/CopyIcon";
-import LikeIcon from "../../icons/LikeIcon";
-import LikeIconActive from "../../icons/LikeIconActive";
-import MagnifierIcon from "../../icons/MagnifierIcon";
-import { marketingEvents, trackMarketingEvent } from "../../marketing";
-import { events, track } from "../../metrics";
-import pluralize from "../../utils/pluralize";
+import CartIconEmpty from "@/icons/CartIconEmpty";
+import CartIconFull from "@/icons/CartIconFull";
+import CO2Icon from "@/icons/CO2Icon";
+import CopyIcon from "@/icons/CopyIcon";
+import LikeIcon from "@/icons/LikeIcon";
+import LikeIconActive from "@/icons/LikeIconActive";
+import MagnifierIcon from "@/icons/MagnifierIcon";
+import { marketingEvents, trackMarketingEvent } from "@/marketing";
+import { events, track } from "@/metrics";
+import pluralize from "@/utils/pluralize";
 
 const ListItem = styled((props) => <MuiListItem {...props} />)(({ theme }) => ({
   padding: "8px 0 0 0",

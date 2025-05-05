@@ -7,9 +7,9 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import CustomLink from './CustomLink';
-import AccountIcon from '../../icons/AccountIcon';
-import CloseIcon from '../../icons/CloseIcon';
-import { events, track, Track } from '../../metrics';
+import AccountIcon from '@/icons/AccountIcon';
+import CloseIcon from '@/icons/CloseIcon';
+import { events, track, Track } from '@/metrics';
 
 export default function LoginRegister(props) {
   const { isOpen, close } = props;

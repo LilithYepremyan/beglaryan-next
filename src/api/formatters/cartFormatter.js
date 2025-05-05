@@ -1,5 +1,5 @@
 import cartItemFormatter from './cartItemFormatter';
-import numberWithSpaces from '../../utils/numberWithSpaces';
+import numberWithSpaces from '@/utils/numberWithSpaces';
 
 export default function cartFormatter(unformattedData) {
   const { ordered, updated, notAvailable, summary, samples, minimalOrder, promoCode, promoDiscount } = unformattedData;

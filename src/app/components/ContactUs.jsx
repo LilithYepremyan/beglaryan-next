@@ -8,14 +8,14 @@ import React, { useState } from "react";
 
 import IconButton from "../components/IconButton";
 import { currentLang } from "../../i18n";
-import ChatIcon from "../../icons/ChatIcon";
-import CloseIcon from "../../icons/CloseIcon";
-import EmailIcon from "../../icons/EmailIcon";
-import TelegramIcon from "../../icons/TelegramIcon";
-import WeChatIcon from "../../icons/WeChatIcon";
-import WhatsAppIcon from "../../icons/WhatsAppIcon";
-import WeChatImg from "../../images/weChat.jpg";
-import { events, track, Track } from "../../metrics";
+import ChatIcon from "@/icons/ChatIcon";
+import CloseIcon from "@/icons/CloseIcon";
+import EmailIcon from "@/icons/EmailIcon";
+import TelegramIcon from "@/icons/TelegramIcon";
+import WeChatIcon from "@/icons/WeChatIcon";
+import WhatsAppIcon from "@/icons/WhatsAppIcon";
+import WeChatImg from "@/images/weChat.jpg";
+import { events, track, Track } from "@/metrics";
 
 export default function ContactUs() {
   const [isOpen, setIsOpen] = useState(false);

@@ -7,17 +7,17 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
-import AddToCartModal from "../../components/AddToCartModal";
-import Banner from "../../components/Banner";
-import CO2Modal from "../../components/CO2Modal";
-import FabricCard from "../../components/FabricCard";
-import FabricChangedModal from "../../components/FabricChangedModal";
-import { FabricSearch, filters } from "../../components/FabricSearch";
-import PageHeader from "../../components/PageHeader";
-import Pagination from "../../components/Pagination";
-import Placeholder from "../../components/Placeholder";
-import FabricCardSkeleton from "../../components/skeletons/FabricCardSkeleton";
-import { events, track } from "../../../metrics";
+// import AddToCartModal from "@/app/components/AddToCartModal";
+import Banner from "@/app/components/Banner";
+import CO2Modal from "@/app/components/CO2Modal";
+import FabricCard from "@/app/components/FabricCard";
+import FabricChangedModal from "@/app/components/FabricChangedModal";
+import { FabricSearch, filters } from "@/app/components/FabricSearch";
+import PageHeader from "@/app/components/PageHeader";
+import Pagination from "@/app/components/Pagination";
+import Placeholder from "@/app/components/Placeholder";
+import FabricCardSkeleton from "@/app/components/skeletons/FabricCardSkeleton";
+import { events, track } from "@/metrics";
 import {
   addFabricToCart,
   addFabricToWishlist,
@@ -27,8 +27,9 @@ import {
   setIsAddToCartModalOpen,
   setIsFabricChangedModalOpen,
   setIsFilterOpen,
-} from "../../store/slices/fabricsPageSlice";
+} from "@/app/store/slices/fabricsPageSlice";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import AddToCartModal from "@/app/components/AddToCartModal";
 
 function Fabrics() {
   const dispatch = useDispatch();

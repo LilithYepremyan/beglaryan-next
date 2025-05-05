@@ -7,9 +7,9 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 import IconButton from "./IconButton";
-import ArrowLeftIcon from "../../icons/ArrowLeftIcon";
-import ArrowRightIcon from "../../icons/ArrowRightIcon";
-import { events, track } from "../../metrics";
+import ArrowLeftIcon from "@/icons/ArrowLeftIcon";
+import ArrowRightIcon from "@/icons/ArrowRightIcon";
+import { events, track } from "@/metrics";
 
 export default function Pagination(props) {
   const {

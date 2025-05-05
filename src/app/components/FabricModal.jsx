@@ -9,9 +9,9 @@ import { useKeenSlider } from 'keen-slider/react';
 
 import IconButton from './IconButton';
 import SliderControl from './SliderControl';
-import CloseIcon from '../../icons/CloseIcon';
-import spinner from '../../../public/images/spinner.svg';
-import { events, track, Track } from '../../metrics';
+import CloseIcon from '@/icons/CloseIcon';
+import spinner from '@/images/spinner.svg';
+import { events, track, Track } from '@/metrics';
 
 const style = {
   position: 'absolute',

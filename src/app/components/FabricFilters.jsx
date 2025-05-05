@@ -16,9 +16,9 @@ import { useTranslation } from 'react-i18next';
 
 import Input from './Input';
 import RangeInput from './RangeInput';
-import { currentLang } from '../../i18n';
-import ArrowDownIcon from '../../icons/ArrowDownIcon';
-import delayCallback from '../../utils/delayCallback';
+import { currentLang } from '@/i18n';
+import ArrowDownIcon from '@/icons/ArrowDownIcon';
+import delayCallback from '@/utils/delayCallback';
 
 const FlexItem = styled(props => <Box {...props} />)(({ theme }) => ({
   minWidth: '215px',

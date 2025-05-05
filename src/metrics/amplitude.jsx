@@ -5,9 +5,9 @@
 import { createInstance, Identify } from '@amplitude/analytics-browser';
 import React, { useEffect } from 'react';
 
-import { currentLang } from '../i18n';
-import { getExperiment } from '../utils/abTesting';
-import isMobile from '../utils/isMobile';
+import { currentLang } from '@/i18n';
+import { getExperiment } from '@/utils/abTesting';
+import isMobile from '@/utils/isMobile';
 
 let setUserInfo = () => {};
 let Track = () => {};

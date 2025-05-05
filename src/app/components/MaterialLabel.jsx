@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import Label from './Label';
 import CustomLink from './CustomLink';
-import { events, track } from '../../metrics';
+import { events, track } from '@/metrics';
 
 export default function FabricCard(props) {
   const { percent: percentUnformatted, materialFull, material, tpe, id } = props;

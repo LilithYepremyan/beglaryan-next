@@ -6,15 +6,15 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "next/navigation";
 
-import Banner from "../../components/Banner";
-import Mailing from "../../components/Mailing";
-import Pagination from "../../components/Pagination";
-import MailingSkeleton from "../../components/skeletons/MailingSkeleton";
-import { events, track } from "../../../metrics";
+import Banner from "@/app/components/Banner";
+import Mailing from "@/app/components/Mailing";
+import Pagination from "@/app/components/Pagination";
+import MailingSkeleton from "@/app/components/skeletons/MailingSkeleton";
+import { events, track } from "@/metrics";
 import {
   fetchMailings,
   resetState,
-} from "../../store/slices/mailingsPageSlice";
+} from "@/app/store/slices/mailingsPageSlice";
 
 function Mailings() {
   const dispatch = useDispatch();

@@ -8,16 +8,17 @@ import Typography from "@mui/material/Typography";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import Contacts from "../../components/Contacts";
-import { currentLang } from "../../../i18n";
-import CloseIcon from "../../../icons/CloseIcon";
-import InstagramIcon from "../../../icons/InstagramIcon";
-import TelegramIcon from "../../../icons/TelegramIcon";
-import WeChatIcon from "../../../icons/WeChatIcon";
-import WhatsAppIcon from "../../../icons/WhatsAppIcon";
-import WeChatImg from "../../../../public/images/weChat.jpg";
-import { events, Track } from "../../../metrics";
-import { colors } from "../../../theme";
+import Contacts from "@/app/components/Contacts";
+import { currentLang } from "@/i18n";
+import CloseIcon from "@/icons/CloseIcon";
+import InstagramIcon from "@/icons/InstagramIcon";
+import TelegramIcon from "@/icons/TelegramIcon";
+import WeChatIcon from "@/icons/WeChatIcon";
+import WhatsAppIcon from "@/icons/WhatsAppIcon";
+import WeChatImg from "@/images/weChat.jpg";
+
+import { events, Track } from "@/metrics";
+import { colors } from "@/theme";
 
 function ContactsPage() {
   const { t } = useTranslation(["contacts"]);

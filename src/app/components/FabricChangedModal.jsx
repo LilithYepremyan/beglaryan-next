@@ -7,9 +7,9 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import LengthInput from './LengthInput';
-import CloseIcon from '../../icons/CloseIcon';
-import WarningIcon from '../../icons/WarningIcon';
-import { events, Track } from '../../metrics';
+import CloseIcon from '@/icons/CloseIcon';
+import WarningIcon from '@/icons/WarningIcon';
+import { events, Track } from '@/metrics';
 
 export default function FabricChangedModal(props) {
   const { t } = useTranslation(['modals']);

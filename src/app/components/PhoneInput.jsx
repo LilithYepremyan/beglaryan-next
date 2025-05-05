@@ -10,9 +10,9 @@ import { useTranslation } from "react-i18next";
 import PhoneInput from "react-phone-input-2";
 
 import Input from "./Input";
-import { currentLang } from "../../i18n";
-import { colors } from "../../theme";
-import isMobile from "../../utils/isMobile";
+import { currentLang } from "@/i18n";
+import { colors } from "@/theme";
+import isMobile from "@/utils/isMobile";
 
 export default function BfPhoneInput(props) {
   const { countryControl, phoneControl, countries, setValue, watch } = props;

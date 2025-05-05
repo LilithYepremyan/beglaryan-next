@@ -8,10 +8,10 @@ import {
   postRecovery,
   postReset,
   postSetup,
-} from "../../../api";
-import { trackMarketingEvent, marketingEvents } from "../../../marketing";
-import { track, events } from "../../../metrics";
-import generateId from "../../../utils/generateId";
+} from "@/api";
+import { trackMarketingEvent, marketingEvents } from "@/marketing";
+import { track, events } from "@/metrics";
+import generateId from "@/utils/generateId";
 
 const onReject = (state, action) => {
   const { code, msg: message } = action.payload || {};

@@ -6,7 +6,7 @@ import {
   postWishlistItem,
   deleteWishlistItem,
   postCartItem,
-} from "../../../api";
+} from "@/api";
 
 export const fetchFabric = createAsyncThunk(
   "fabricPage/fetchFabric",

@@ -1,7 +1,7 @@
 import Chip from "@mui/material/Chip";
 import * as React from "react";
 
-import { colors as palette } from "../../theme";
+import { colors as palette } from "@/theme";
 
 const backgrounds = {
   promotion: palette.brightBlue,

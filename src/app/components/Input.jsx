@@ -2,7 +2,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 
-import { colors } from '../../theme';
+import { colors } from '@/theme';
 
 const Input = React.forwardRef((props, _ref) => {
   const { label, required, success } = props;
